@@ -35,11 +35,20 @@ public class project1 {
 
 	public static void main(String[] args) {
 		
-		// int sum = theSimpleMethod(1000);
+		long startTime = System.nanoTime();
 		
-		int sum = streamFilter(1000);
+		int sum = theSimpleMethod(1000);
 		
-		System.out.println(Integer.toString(sum));
+		long inbetweenTime = System.nanoTime();
+		
+		int sum2 = streamFilter(1000);
+		
+		long endTime = System.nanoTime();
+		
+		System.out.println("The simple method took: \t" 
+				+ Long.toString(inbetweenTime-startTime) + "ns");
+		System.out.println("The filter method took: \t" 
+				+ Long.toString(endTime-inbetweenTime) + "ns");
 	}
 
 }
